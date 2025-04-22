@@ -60,7 +60,7 @@ public class App {
             System.out.println("\n================================");
 
             // 메뉴 - history 수정, 종료
-            System.out.print("[MENU] 1. 계속 (enter) 2. history 수정 (change) 3. 종료 (exit) > ");
+            System.out.print("[MENU] 1. 계속 (enter) 2. history 수정 (change) 3. history 삭제 (remove) 4. 종료 (exit) > ");
             userInput = s.nextLine();
 
             if(userInput.equals("change")){  // setter 메서드 사용
@@ -70,6 +70,15 @@ public class App {
                 changeNum = s.nextInt();
 
                 calculator.setResults(index, changeNum);
+
+                System.out.print("수정된 History : ");
+                for (Integer data : numList){
+                    System.out.print(data + " ");
+                }
+                System.out.println();
+            }
+            else if(userInput.equals("remove")){  // 삭제 메서드 사용
+                calculator.removeResults();
 
                 System.out.print("수정된 History : ");
                 for (Integer data : numList){

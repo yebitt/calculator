@@ -47,5 +47,10 @@ public class Calculator {
         }
     }
 
+    // 가장 먼저 저장된 데이터 삭제하는 메서드
+    public void removeResults(){
+        if(!results.isEmpty())
+            results.remove(results.size()-1);
+    }
 
 }
