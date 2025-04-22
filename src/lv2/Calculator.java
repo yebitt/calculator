@@ -26,7 +26,7 @@ public class Calculator {
                 results.add(num1 / num2);
                 break;
             default:
-                System.out.println("오류 발생");
+                throw new IllegalArgumentException("잘못된 연산자 입니다.");
         }
 
         return results.get(results.size()-1);
