@@ -31,4 +31,21 @@ public class Calculator {
 
         return results.get(results.size()-1);
     }
+
+    // Getter 메서드
+    public List<Integer> getResults(){
+        return results;
+    }
+
+    // Setter 메서드
+    public void setResults(int index, int changeNum){
+        if(index >= 0 && index < results.size())
+            results.set(index, changeNum);
+        else{
+            System.out.println("인덱스 범위를 벗어났습니다.");
+            // 또는 throw new IndexOutOfBoundsException("인덱스 범위를 벗어났습니다.");
+        }
+    }
+
+
 }

@@ -1,5 +1,7 @@
 package lv2;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -10,6 +12,8 @@ public class App {
         int result = 0;
         String userInput = "";
         Calculator calculator = new Calculator();
+        List<Integer> numList = new ArrayList<>();
+        int index, changeNum;
 
         // 4. “exit” 문자열을 입력하기 전까지 무한으로 계산 기능
         while(true) {
@@ -46,9 +50,34 @@ public class App {
                 break;
             }
 
-            System.out.print("계속 진행을 원하시면 enter를, 종료를 원하시면 exit을 입력하십시오 > ");
+            // getter 메서드 사용
+            numList = calculator.getResults();
+            System.out.println("================================");
+            System.out.print("History : ");
+            for (Integer data : numList){
+                System.out.print(data + " ");
+            }
+            System.out.println("\n================================");
+
+            // 메뉴 - history 수정, 종료
+            System.out.print("[MENU] 1. 계속 (enter) 2. history 수정 (change) 3. 종료 (exit) > ");
             userInput = s.nextLine();
-            if(userInput.equals("exit")) {
+
+            if(userInput.equals("change")){  // setter 메서드 사용
+                System.out.print("수정 인덱스 : ");
+                index = s.nextInt();
+                System.out.print("수정 숫자 : ");
+                changeNum = s.nextInt();
+
+                calculator.setResults(index, changeNum);
+
+                System.out.print("수정된 History : ");
+                for (Integer data : numList){
+                    System.out.print(data + " ");
+                }
+                System.out.println();
+            }
+            else if(userInput.equals("exit")) {
                 System.out.println("이용해 주셔서 감사합니다.");
                 break;
             }
